@@ -1,0 +1,2294 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Psihologia proceselor cognitive – Test Grilă (65 Itemi)</title>
+  <style>
+    /* ==========================================================================
+       DESIGN SYSTEM & VARIABILE CSS (Paletă academică curată și modernă)
+       ========================================================================== */
+    :root {
+      --primary: #1e3a8a;
+      --primary-hover: #172554;
+      --primary-light: #eff6ff;
+      --accent: #0f766e;
+      --accent-light: #f0fdfa;
+      --bg-page: #f1f5f9;
+      --bg-card: #ffffff;
+      --text-main: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --border-strong: #cbd5e1;
+      --success: #15803d;
+      --success-bg: #dcfce7;
+      --success-border: #22c55e;
+      --error: #b91c1c;
+      --error-bg: #fee2e2;
+      --error-border: #ef4444;
+      --warning-bg: #fefce8;
+      --warning-border: #eab308;
+      --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+      --shadow-md: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+      --shadow-lg: 0 20px 35px -10px rgba(30, 58, 138, 0.14);
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ==========================================================================
+       ANTET ACADEMIC (HEADER)
+       ========================================================================== */
+    .app-header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 60%, #0f766e 100%);
+      color: #ffffff;
+      padding: 1.5rem 1.25rem;
+      box-shadow: var(--shadow-md);
+      border-bottom: 4px solid #0f172a20;
+    }
+
+    .header-container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .header-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(6px);
+      padding: 0.3rem 0.85rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      margin-bottom: 0.65rem;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+    }
+
+    .header-title {
+      font-size: clamp(1.35rem, 3vw, 1.9rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      margin-bottom: 0.45rem;
+    }
+
+    .header-subtitle {
+      font-size: clamp(0.88rem, 2vw, 0.98rem);
+      color: #e2e8f0;
+      max-width: 850px;
+      font-weight: 400;
+    }
+
+    /* ==========================================================================
+       CONTAINER PRINCIPAL
+       ========================================================================== */
+    .main-wrapper {
+      flex: 1;
+      width: 100%;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 1.75rem 1.25rem 3rem;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border);
+      padding: clamp(1.25rem, 4vw, 2.25rem);
+      animation: fadeIn 0.35s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    /* ==========================================================================
+       ECRAN DE START (CONFIGURARE & PREZENTARE)
+       ========================================================================== */
+    .course-banner {
+      background: linear-gradient(to right, var(--primary-light), var(--accent-light));
+      border-left: 5px solid var(--primary);
+      border-radius: var(--radius-md);
+      padding: 1.15rem 1.35rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .course-banner p {
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: var(--primary-hover);
+    }
+
+    .themes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 0.85rem;
+      margin: 1.25rem 0 1.75rem;
+    }
+
+    .theme-pill {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 0.9rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+      transition: var(--transition);
+    }
+
+    .theme-pill:hover {
+      border-color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    .theme-pill-title {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .theme-pill-count {
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .rules-list {
+      background: #f8fafc;
+      border-radius: var(--radius-md);
+      padding: 1.15rem 1.35rem;
+      margin-bottom: 1.75rem;
+      border: 1px solid var(--border);
+    }
+
+    .rules-list h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 0.65rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .rules-list ul {
+      list-style: none;
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    .rules-list li {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      padding-left: 1.4rem;
+      position: relative;
+    }
+
+    .rules-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .start-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 0.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .select-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      min-width: 260px;
+      flex: 1;
+    }
+
+    .select-group label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--text-muted);
+    }
+
+    .theme-select {
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-sm);
+      border: 1.5px solid var(--border-strong);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-main);
+      background: #fff;
+      cursor: pointer;
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .theme-select:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.12);
+    }
+
+    /* ==========================================================================
+       BUTOANE
+       ========================================================================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      padding: 0.85rem 1.65rem;
+      border-radius: var(--radius-md);
+      font-size: 1rem;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      text-decoration: none;
+      user-select: none;
+    }
+
+    .btn:active {
+      transform: scale(0.98);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(30, 58, 138, 0.28);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-hover);
+      box-shadow: 0 6px 20px rgba(30, 58, 138, 0.36);
+    }
+
+    .btn-accent {
+      background: var(--accent);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(15, 118, 110, 0.25);
+    }
+
+    .btn-accent:hover {
+      background: #115e59;
+    }
+
+    .btn-outline {
+      background: #ffffff;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+
+    .btn-outline:hover {
+      background: var(--primary-light);
+    }
+
+    /* ==========================================================================
+       ZONA DE TESTARE & BARA DE PROGRES
+       ========================================================================== */
+    .progress-section {
+      margin-bottom: 1.5rem;
+    }
+
+    .progress-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .progress-stats {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .stat-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      color: var(--text-main);
+    }
+
+    .stat-chip.timer {
+      background: var(--primary-light);
+      color: var(--primary);
+      border-color: #bfdbfe;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .stat-chip.score-live {
+      background: var(--accent-light);
+      color: var(--accent);
+      border-color: #99f6e4;
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 12px;
+      background: #e2e8f0;
+      border-radius: 999px;
+      overflow: hidden;
+      box-shadow: inset 0 1px 2px rgba(0,0,0,0.06);
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+      border-radius: 999px;
+      transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .question-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .theme-tag {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--accent);
+      background: var(--accent-light);
+      border: 1px solid #99f6e4;
+      padding: 0.25rem 0.75rem;
+      border-radius: 6px;
+    }
+
+    .item-ref {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .question-text {
+      font-size: clamp(1.12rem, 2.5vw, 1.38rem);
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 1.4rem;
+      line-height: 1.45;
+    }
+
+    /* Variantele de răspuns */
+    .options-grid {
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .option-btn {
+      width: 100%;
+      text-align: left;
+      background: #ffffff;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      cursor: pointer;
+      transition: var(--transition);
+      font-size: 1rem;
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    .option-btn:hover:not(:disabled) {
+      border-color: var(--primary);
+      background: var(--primary-light);
+      transform: translateX(3px);
+    }
+
+    .option-btn:disabled {
+      cursor: default;
+    }
+
+    .option-letter {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: #f1f5f9;
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border-strong);
+      transition: var(--transition);
+    }
+
+    .option-btn:hover:not(:disabled) .option-letter {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    /* Stări Corect / Greșit */
+    .option-btn.correct {
+      background: var(--success-bg);
+      border-color: var(--success-border);
+      color: #14532d;
+      font-weight: 600;
+    }
+
+    .option-btn.correct .option-letter {
+      background: var(--success);
+      color: #ffffff;
+      border-color: var(--success);
+    }
+
+    .option-btn.wrong {
+      background: var(--error-bg);
+      border-color: var(--error-border);
+      color: #7f1d1d;
+      font-weight: 600;
+    }
+
+    .option-btn.wrong .option-letter {
+      background: var(--error);
+      color: #ffffff;
+      border-color: var(--error);
+    }
+
+    .option-btn.dimmed {
+      opacity: 0.55;
+    }
+
+    /* Banner rapid la răspuns corect */
+    .auto-advance-toast {
+      margin-top: 1.25rem;
+      padding: 0.85rem 1.15rem;
+      border-radius: var(--radius-md);
+      background: var(--success-bg);
+      border: 1px solid var(--success-border);
+      color: #14532d;
+      font-weight: 700;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      animation: fadeIn 0.2s ease-out;
+    }
+
+    /* Panou explicație la răspuns greșit */
+    .explanation-box {
+      margin-top: 1.5rem;
+      background: #fffbeb;
+      border: 2px solid #f59e0b;
+      border-radius: var(--radius-md);
+      padding: 1.35rem 1.5rem;
+      animation: slideUp 0.3s ease-out;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .explanation-header {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      color: #92400e;
+      font-weight: 800;
+      font-size: 1.05rem;
+      margin-bottom: 0.65rem;
+    }
+
+    .explanation-correct-answer {
+      background: #ffffff;
+      border-left: 4px solid var(--success);
+      padding: 0.65rem 0.95rem;
+      border-radius: 6px;
+      margin-bottom: 0.85rem;
+      font-size: 0.94rem;
+      color: #14532d;
+    }
+
+    .explanation-text {
+      font-size: 0.95rem;
+      color: #1e293b;
+      line-height: 1.65;
+      margin-bottom: 1.2rem;
+    }
+
+    .explanation-source-note {
+      font-size: 0.8rem;
+      color: #78350f;
+      font-style: italic;
+      margin-bottom: 1.15rem;
+    }
+
+    /* ==========================================================================
+       CHENAR CONCLUZIONAL MARE (ECRAN FINAL)
+       ========================================================================== */
+    .conclusion-hero {
+      background: linear-gradient(145deg, #0f172a 0%, #1e3a8a 55%, #0f766e 100%);
+      color: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: clamp(1.75rem, 5vw, 3rem);
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 2rem;
+      border: 2px solid rgba(255, 255, 255, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .conclusion-hero::after {
+      content: "";
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 240px;
+      height: 240px;
+      background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .conclusion-top-label {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.16);
+      padding: 0.35rem 0.95rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 0.85rem;
+    }
+
+    .conclusion-title {
+      font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+
+    .conclusion-subtitle {
+      color: #cbd5e1;
+      font-size: 0.98rem;
+      margin-bottom: 1.75rem;
+      max-width: 720px;
+    }
+
+    .score-showcase {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.15rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .score-big-box {
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: var(--radius-md);
+      padding: 1.35rem;
+      text-align: center;
+    }
+
+    .score-big-box.highlight {
+      background: rgba(255, 255, 255, 0.2);
+      border: 2px solid #5eead4;
+    }
+
+    .score-big-value {
+      font-size: clamp(2rem, 4.5vw, 2.85rem);
+      font-weight: 900;
+      line-height: 1.1;
+      color: #ffffff;
+      margin-bottom: 0.35rem;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .score-big-box.highlight .score-big-value {
+      color: #5eead4;
+    }
+
+    .score-big-label {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #e2e8f0;
+      font-weight: 700;
+    }
+
+    .score-big-desc {
+      font-size: 0.78rem;
+      color: #cbd5e1;
+      margin-top: 0.35rem;
+    }
+
+    .metrics-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 0.85rem;
+      background: rgba(15, 23, 42, 0.45);
+      padding: 1.15rem;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      margin-bottom: 1.35rem;
+    }
+
+    .metric-item {
+      text-align: center;
+    }
+
+    .metric-val {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #ffffff;
+    }
+
+    .metric-lbl {
+      font-size: 0.78rem;
+      color: #94a3b8;
+      font-weight: 600;
+    }
+
+    .grade-assessment {
+      background: rgba(255, 255, 255, 0.1);
+      border-left: 4px solid #5eead4;
+      padding: 1rem 1.25rem;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      color: #f8fafc;
+    }
+
+    .final-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2.25rem;
+    }
+
+    /* Secțiunea cu rezumatul greșelilor */
+    .mistakes-section h2 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .mistakes-intro {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 1.35rem;
+    }
+
+    .mistake-card {
+      background: #ffffff;
+      border: 1px solid var(--border-strong);
+      border-left: 5px solid var(--error);
+      border-radius: var(--radius-md);
+      padding: 1.35rem;
+      margin-bottom: 1.15rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .mistake-q-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--text-main);
+      margin-bottom: 0.85rem;
+    }
+
+    .mistake-answers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 0.95rem;
+    }
+
+    .ans-pill {
+      padding: 0.65rem 0.9rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+    }
+
+    .ans-pill.user-wrong {
+      background: var(--error-bg);
+      color: #7f1d1d;
+      border: 1px solid #fca5a5;
+    }
+
+    .ans-pill.right-ans {
+      background: var(--success-bg);
+      color: #14532d;
+      border: 1px solid #86efac;
+    }
+
+    .mistake-explanation {
+      background: #f8fafc;
+      padding: 0.95rem 1.1rem;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      border: 1px solid var(--border);
+    }
+
+    .perfect-banner {
+      background: var(--success-bg);
+      border: 2px solid var(--success-border);
+      color: #14532d;
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+      text-align: center;
+    }
+
+    .perfect-banner h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.4rem;
+    }
+
+    /* ==========================================================================
+       FOOTER
+       ========================================================================== */
+    .app-footer {
+      background: #ffffff;
+      border-top: 1px solid var(--border);
+      padding: 1.25rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-top: auto;
+    }
+
+    .app-footer strong {
+      color: var(--primary);
+    }
+
+    @media (max-width: 600px) {
+      .option-btn {
+        padding: 0.85rem 0.95rem;
+        gap: 0.75rem;
+        font-size: 0.94rem;
+      }
+      .option-letter {
+        width: 30px;
+        height: 30px;
+        font-size: 0.85rem;
+      }
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ANTET ACADEMIC -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="header-badge">
+        <span>🎓 Evaluare &amp; Antrenament Academic</span>
+      </div>
+      <h1 class="header-title">Psihologia proceselor cognitive</h1>
+      <p class="header-subtitle">
+        Material de antrenament structurat pe baza suportului de curs „Psihologia proceselor cognitive” (Prof. Dr. Tatiana Verdeș) și a grilei de examen pe cele 5 teme fundamentale (65 de itemi).
+      </p>
+    </div>
+  </header>
+
+  <!-- CONȚINUT PRINCIPAL -->
+  <main class="main-wrapper">
+
+    <!-- 1. ECRAN DE START -->
+    <section id="start-screen" class="card">
+      <div class="course-banner">
+        <p>
+          📘 Material de antrenament structurat pe baza suportului de curs „Psihologia proceselor cognitive” (Prof. Dr. Tatiana Verdeș) și a grilei de examen pe cele 5 teme fundamentale (65 de itemi).
+        </p>
+      </div>
+
+      <h2 style="font-size: 1.2rem; font-weight: 800; color: var(--text-main);">
+        Structura tematică a grilei de examen
+      </h2>
+      <div class="themes-grid">
+        <div class="theme-pill">
+          <span class="theme-pill-title">Tema 1 – Psihologia proceselor cognitive</span>
+          <span class="theme-pill-count">6 itemi</span>
+        </div>
+        <div class="theme-pill">
+          <span class="theme-pill-title">Tema 2 – Senzațiile</span>
+          <span class="theme-pill-count">18 itemi</span>
+        </div>
+        <div class="theme-pill">
+          <span class="theme-pill-title">Tema 3 – Percepția</span>
+          <span class="theme-pill-count">14 itemi</span>
+        </div>
+        <div class="theme-pill">
+          <span class="theme-pill-title">Tema 4 – Reprezentările</span>
+          <span class="theme-pill-count">11 itemi</span>
+        </div>
+        <div class="theme-pill">
+          <span class="theme-pill-title">Tema 5 – Memoria</span>
+          <span class="theme-pill-count">16 itemi</span>
+        </div>
+      </div>
+
+      <div class="rules-list">
+        <h3>⚙️ Modul de funcționare a sesiunii de evaluare</h3>
+        <ul>
+          <li><strong>Randomizare completă:</strong> La fiecare deschidere sau reîncepere a testului, ordinea întrebărilor și ordinea variantelor de răspuns sunt amestecate aleatoriu, păstrând constantă corectitudinea științifică.</li>
+          <li><strong>Răspuns corect → Avansare automată:</strong> La selectarea variantei corecte, aplicația validează răspunsul și trece automat la următoarea întrebare.</li>
+          <li><strong>Răspuns greșit → Explicație detaliată din curs:</strong> Dacă alegi o variantă incorectă, se afișează imediat răspunsul corect și explicația teoretică extrasă din suportul de curs.</li>
+          <li><strong>Evaluare finală Viteză-Acuratețe:</strong> La final vei primi un rezumat al greșelilor și un scor general calculat din raportul dintre răspunsurile corecte și timpul de îndeplinire.</li>
+        </ul>
+      </div>
+
+      <div class="start-controls">
+        <div class="select-group">
+          <label for="theme-filter">Selectează modul de testare</label>
+          <select id="theme-filter" class="theme-select">
+            <option value="ALL" selected>Toate cele 5 teme – Grila completă (65 itemi)</option>
+            <option value="TEMA 1 – Psihologia proceselor cognitive">Tema 1 – Psihologia proceselor cognitive (6 itemi)</option>
+            <option value="TEMA 2 – Senzațiile">Tema 2 – Senzațiile (18 itemi)</option>
+            <option value="TEMA 3 – Percepția">Tema 3 – Percepția (14 itemi)</option>
+            <option value="TEMA 4 – Reprezentările">Tema 4 – Reprezentările (11 itemi)</option>
+            <option value="TEMA 5 – Memoria">Tema 5 – Memoria (16 itemi)</option>
+          </select>
+        </div>
+
+        <button id="btn-start" class="btn btn-primary" type="button">
+          <span>Începe testul grilă</span>
+          <span>→</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- 2. ECRAN DE TESTARE ACTIVĂ -->
+    <section id="quiz-screen" class="card hidden">
+      <!-- Bara de progres și statistici live -->
+      <div class="progress-section">
+        <div class="progress-header">
+          <span id="progress-label" style="font-weight: 800; font-size: 0.95rem; color: var(--primary);">
+            Întrebarea 1 din 65 (0%)
+          </span>
+          <div class="progress-stats">
+            <span class="stat-chip score-live" id="live-score-chip">✓ Corecte: 0</span>
+            <span class="stat-chip timer" id="live-timer-chip">⏱ 00:00</span>
+          </div>
+        </div>
+        <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progress-bar-container">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+      </div>
+
+      <!-- Meta-informații întrebare -->
+      <div class="question-meta">
+        <span class="theme-tag" id="q-theme">TEMA</span>
+        <span class="item-ref" id="q-original-id">Item grilă #1</span>
+      </div>
+
+      <!-- Enunțul întrebării -->
+      <h2 class="question-text" id="q-text">Enunțul întrebării...</h2>
+
+      <!-- Opțiuni de răspuns -->
+      <div class="options-grid" id="options-container"></div>
+
+      <!-- Feedback rapid pentru răspuns corect -->
+      <div id="auto-advance-toast" class="auto-advance-toast hidden">
+        <span>✅ Răspuns corect! Se trece automat la următoarea întrebare...</span>
+      </div>
+
+      <!-- Panou explicație pentru răspuns greșit -->
+      <div id="explanation-panel" class="explanation-box hidden">
+        <div class="explanation-header">
+          <span>⚠️ Răspuns incorect – Analiză din suportul de curs</span>
+        </div>
+        <div class="explanation-correct-answer" id="exp-correct-answer"></div>
+        <div class="explanation-text" id="exp-text"></div>
+        <div class="explanation-source-note">
+          Sursă: Suport de curs „Psihologia proceselor cognitive” – Prof. Dr. Tatiana Verdeș
+        </div>
+        <button id="btn-next-question" class="btn btn-primary" type="button">
+          Continuă la următoarea întrebare →
+        </button>
+      </div>
+    </section>
+
+    <!-- 3. ECRAN FINAL (CHENAR CONCLUZIONAL MARE + REZUMAT) -->
+    <section id="result-screen" class="hidden">
+      <!-- Chenarul concluzional MARE -->
+      <div class="conclusion-hero">
+        <div class="conclusion-top-label">Raport Final de Evaluare Cognitivă</div>
+        <h2 class="conclusion-title">Rezultatele Sesiunii de Antrenament</h2>
+        <p class="conclusion-subtitle">
+          Material de antrenament structurat pe baza suportului de curs „Psihologia proceselor cognitive” (Prof. Dr. Tatiana Verdeș) și a grilei de examen pe cele 5 teme fundamentale (65 de itemi).
+        </p>
+
+        <div class="score-showcase">
+          <div class="score-big-box highlight">
+            <div class="score-big-value" id="final-general-score">0.00</div>
+            <div class="score-big-label">Scor General (Viteză × Acuratețe)</div>
+            <div class="score-big-desc" id="final-score-formula">Indice eficiență cognitivă (puncte/min &amp; acuratețe)</div>
+          </div>
+
+          <div class="score-big-box">
+            <div class="score-big-value" id="final-accuracy">0%</div>
+            <div class="score-big-label">Acuratețea Răspunsurilor</div>
+            <div class="score-big-desc" id="final-fraction">0 din 65 corecte</div>
+          </div>
+
+          <div class="score-big-box">
+            <div class="score-big-value" id="final-speed-ratio">0.0</div>
+            <div class="score-big-label">Răspunsuri Corecte / Minut</div>
+            <div class="score-big-desc" id="final-avg-time">Timp mediu: 0.0 sec / item</div>
+          </div>
+        </div>
+
+        <div class="metrics-strip">
+          <div class="metric-item">
+            <div class="metric-val" id="stat-total-items">65</div>
+            <div class="metric-lbl">Total Itemi Parcurși</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-val" style="color: #4ade80;" id="stat-correct">0</div>
+            <div class="metric-lbl">Răspunsuri Corecte</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-val" style="color: #f87171;" id="stat-wrong">0</div>
+            <div class="metric-lbl">Răspunsuri Greșite</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-val" id="stat-total-time">00:00</div>
+            <div class="metric-lbl">Timp Total Îndeplinire</div>
+          </div>
+        </div>
+
+        <div class="grade-assessment" id="final-assessment-text">
+          Interpretare academică...
+        </div>
+      </div>
+
+      <!-- Butoane acțiune post-test -->
+      <div class="final-actions">
+        <button id="btn-restart-all" class="btn btn-primary" type="button">
+          🔄 Reia testul (întrebări și opțiuni reamestecate)
+        </button>
+        <button id="btn-retry-mistakes" class="btn btn-accent hidden" type="button">
+          🎯 Exersează doar itemii greșiți (<span id="retry-count">0</span>)
+        </button>
+        <button id="btn-back-home" class="btn btn-outline" type="button">
+          🏠 Înapoi la selecția temelor
+        </button>
+      </div>
+
+      <!-- Rezumatul explicativ al răspunsurilor alese greșit -->
+      <div class="card mistakes-section">
+        <h2>📋 Rezumatul explicativ al răspunsurilor alese greșit</h2>
+        <p class="mistakes-intro" id="mistakes-subtitle">
+          Analizează mai jos itemii la care ai întâmpinat dificultăți, împreună cu fundamentarea teoretică din suportul de curs.
+        </p>
+        <div id="mistakes-list-container"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="app-footer">
+    <strong>Material de antrenament structurat pe baza suportului de curs „Psihologia proceselor cognitive” (Prof. Dr. Tatiana Verdeș) și a grilei de examen pe cele 5 teme fundamentale (65 de itemi).</strong>
+  </footer>
+
+  <script>
+    /* ==========================================================================
+       BAZA DE DATE COMPLETĂ A CELOR 65 DE ITEMI (Extrasă exact din ppc grilă.md)
+       + Explicații academice fundamentate pe suportul de curs (Prof. Dr. T. Verdeș)
+       ========================================================================== */
+    const QUESTIONS_DB = [
+      // ===================== TEMA 1 – Psihologia proceselor cognitive (6 itemi) =====================
+      {
+        id: 1,
+        theme: "TEMA 1 – Psihologia proceselor cognitive",
+        question: "Psihologia cognitivă studiază cu prioritate:",
+        options: [
+          "comportamentele observabile",
+          "mecanismele de prelucrare a informației",
+          "reacțiile emoționale",
+          "trăsăturile de personalitate"
+        ],
+        correctIndex: 1,
+        explanation: "Conform suportului de curs (UÎ 1, Ulric Neisser, 1967), psihologia cognitivă studiază procesele și mecanismele prin care informația senzorială este transformată, redusă, elaborată, stocată, regăsită și utilizată. Spre deosebire de behaviorism (care se limita la comportamentele observabile), paradigma informațională concepe mintea ca un sistem de prelucrare a informației."
+      },
+      {
+        id: 2,
+        theme: "TEMA 1 – Psihologia proceselor cognitive",
+        question: "Procesele cognitive sunt definite ca:",
+        options: [
+          "reacții reflexe",
+          "mecanisme informațional-operaționale",
+          "conduite sociale",
+          "manifestări afective"
+        ],
+        correctIndex: 1,
+        explanation: "În curs (Secțiunea 1.2), procesul psihic cognitiv este definit drept un mecanism operațional-informațional prin care omul reflectă realitatea externă și internă, transformând stimulii în reprezentări mentale prin structuri funcționale specializate ce prelucrează, stochează și utilizează informația."
+      },
+      {
+        id: 3,
+        theme: "TEMA 1 – Psihologia proceselor cognitive",
+        question: "Prelucrarea primară a informației este realizată prin:",
+        options: [
+          "gândire și limbaj",
+          "memorie și imaginație",
+          "senzații și percepții",
+          "reprezentări"
+        ],
+        correctIndex: 2,
+        explanation: "Prelucrarea primară (elementară) a informației se realizează prin contactul direct cu stimulii din mediu, fiind asigurată de procesele cognitive senzoriale: senzațiile (detectarea proprietăților izolate) și percepțiile (organizarea lor într-o imagine unitară și coerentă)."
+      },
+      {
+        id: 4,
+        theme: "TEMA 1 – Psihologia proceselor cognitive",
+        question: "Prelucrarea secundară a informației presupune:",
+        options: [
+          "mecanisme reflexe",
+          "stimulare senzorială",
+          "operații cognitive superioare",
+          "adaptare biologică"
+        ],
+        correctIndex: 2,
+        explanation: "Prelucrarea secundară depășește contactul nemijlocit cu stimulul și implică control conștient, raționalitate, abstractizare și operații cognitive superioare (gândire, raționament, limbaj, imaginație creatoare, decizie și metacogniție)."
+      },
+      {
+        id: 5,
+        theme: "TEMA 1 – Psihologia proceselor cognitive",
+        question: "Termenul „cognitiv” se referă la:",
+        options: [
+          "afectivitate",
+          "voință",
+          "cunoaștere",
+          "motivație"
+        ],
+        correctIndex: 2,
+        explanation: "Etimologic, termenul „cognitiv” provine din latinescul «cognoscere» („a cunoaște”) și desemnează totalitatea proceselor mentale implicate în achiziția, stocarea, transformarea și utilizarea cunoștințelor, delimitându-se de dimensiunea afectivă (emoții) și cea volitivă (voință)."
+      },
+      {
+        id: 6,
+        theme: "TEMA 1 – Psihologia proceselor cognitive",
+        question: "Finalitatea proceselor cognitive este:",
+        options: [
+          "adaptarea la mediu prin cunoaștere",
+          "controlul emoțiilor",
+          "reglarea impulsurilor",
+          "expresivitate"
+        ],
+        correctIndex: 0,
+        explanation: "Procesele psihice cognitive au rolul fundamental de a permite organismului să dobândească și să prelucreze informații despre mediu și despre sine, asigurând astfel adaptarea la mediu prin cunoaștere și orientarea comportamentului finalizat."
+      },
+
+      // ===================== TEMA 2 – Senzațiile (18 itemi) =====================
+      {
+        id: 7,
+        theme: "TEMA 2 – Senzațiile",
+        question: "Iritabilitatea este:",
+        options: [
+          "proprietate psihică",
+          "proprietate biologică generală",
+          "proces cognitiv",
+          "mecanism perceptiv"
+        ],
+        correctIndex: 1,
+        explanation: "În evoluția filogenetică a reflectării, iritabilitatea este o proprietate biologică generală a materiei vii de a reacționa nespecific la influențele directe ale mediului (ex. trofismele la plante), anterioară apariției psihicului."
+      },
+      {
+        id: 8,
+        theme: "TEMA 2 – Senzațiile",
+        question: "Sensibilitatea reprezintă:",
+        options: [
+          "reacție afectivă",
+          "prima formă de psihic",
+          "proces intelectual",
+          "mecanism social"
+        ],
+        correctIndex: 1,
+        explanation: "Sensibilitatea apare odată cu sistemul nervos și organele de simț specializate, reprezentând prima formă de psihic (reflectare psihică elementară), capabilă să semnalizeze însușiri cu valoare adaptativă ale stimulilor."
+      },
+      {
+        id: 9,
+        theme: "TEMA 2 – Senzațiile",
+        question: "Senzația este:",
+        options: [
+          "imagine secundară",
+          "reflecție nemijlocită a stimulului",
+          "construcție simbolică",
+          "act interpretativ"
+        ],
+        correctIndex: 1,
+        explanation: "Senzația este procesul psihic cognitiv elementar de reflectare nemijlocită (directă) a însușirilor concrete, izolate ale obiectelor și fenomenelor atunci când acestea acționează direct asupra receptorilor senzoriali."
+      },
+      {
+        id: 10,
+        theme: "TEMA 2 – Senzațiile",
+        question: "Pragul minim absolut este:",
+        options: [
+          "intensitatea maximă suportabilă",
+          "diferența minimă detectabilă",
+          "cea mai mică intensitate perceptibilă",
+          "nivelul optim al stimulării"
+        ],
+        correctIndex: 2,
+        explanation: "Pragul minim absolut reprezintă cea mai mică intensitate a unui stimul capabilă să declanșeze o senzație conștientă (de exemplu, minimul de energie luminoasă sau acustică necesar pentru detecție). Sensibilitatea absolută este invers proporțională cu acest prag."
+      },
+      {
+        id: 11,
+        theme: "TEMA 2 – Senzațiile",
+        question: "Pragul diferențial se referă la:",
+        options: [
+          "durata stimulului",
+          "variația minimă sesizabilă",
+          "intensitatea maximă",
+          "adaptare senzorială"
+        ],
+        correctIndex: 1,
+        explanation: "Pragul diferențial reprezintă variația minimă sesizabilă (diferența minimă de intensitate) adăugată sau scăzută dintr-un stimul inițial pentru a produce o nouă senzație abia perceptibilă (legea Bouguer-Weber)."
+      },
+      {
+        id: 12,
+        theme: "TEMA 2 – Senzațiile",
+        question: "Tonul afectiv al senzației exprimă:",
+        options: [
+          "durata",
+          "intensitatea",
+          "caracterul plăcut/neplăcut",
+          "claritatea"
+        ],
+        correctIndex: 2,
+        explanation: "Pe lângă calitate, intensitate și durată, fiecare senzație este însoțită de un ton afectiv (coloratură emoțională primară), care exprimă caracterul plăcut sau neplăcut al stimulării (ex. un miros agreabil vs. o durere)."
+      },
+      {
+        id: 13,
+        theme: "TEMA 2 – Senzațiile",
+        question: "După criteriul morfologic, senzațiile sunt:",
+        options: [
+          "exteroceptive, proprioceptive, interoceptive",
+          "vizuale, auditive, tactile",
+          "simple și complexe",
+          "primare și secundare"
+        ],
+        correctIndex: 0,
+        explanation: "După criteriul morfologic (amplasarea receptorilor în organism și sursa stimulării), senzațiile se clasifică în: exteroceptive (receptori la suprafața corpului, pentru stimuli externi), proprioceptive (în mușchi, tendoane, articulații) și interoceptive/viscerale (în organele interne)."
+      },
+      {
+        id: 14,
+        theme: "TEMA 2 – Senzațiile",
+        question: "Legea adaptării exprimă:",
+        options: [
+          "creșterea sensibilității constante",
+          "diminuarea sensibilității la stimul constant",
+          "compensarea senzorială",
+          "sinestezia"
+        ],
+        correctIndex: 1,
+        explanation: "Legea adaptării senzoriale constă în modificarea sensibilității analizatorului sub acțiunea îndelungată a unui stimul cu intensitate constantă: sensibilitatea scade la stimuli intenși/constanți (ex. obișnuirea cu un miros sau zgomot de fond) și crește la stimuli slabi (ex. adaptarea la întuneric)."
+      },
+      {
+        id: 15,
+        theme: "TEMA 2 – Senzațiile",
+        question: "Sinestezia este:",
+        options: [
+          "pierdere senzorială",
+          "asociere între senzații diferite",
+          "adaptare biologică",
+          "mecanism perceptiv"
+        ],
+        correctIndex: 1,
+        explanation: "Sinestezia reprezintă o lege a interacțiunii analizatorilor prin care stimularea unui analizator produce simultan senzații specifice unui alt analizator (asociere între senzații diferite, ex. „sunete calde”, „culori reci” sau audiția colorată)."
+      },
+      {
+        id: 16,
+        theme: "TEMA 2 – Senzațiile",
+        question: "Compensarea senzorială apare când:",
+        options: [
+          "stimulii sunt identici",
+          "un analizator este deficitar",
+          "pragurile sunt fixe",
+          "stimulul este prea intens"
+        ],
+        correctIndex: 1,
+        explanation: "Compensarea senzorială intervine atunci când un analizator este deficitar sau distrus (ex. deficiența vizuală), determinând dezvoltarea și ascuțirea funcțională a altor analizatori (tactil, auditiv, kinestezic) pentru a suplini informația lipsă."
+      },
+      {
+        id: 17,
+        theme: "TEMA 2 – Senzațiile",
+        question: "Teoria energiei specifice afirmă că:",
+        options: [
+          "stimulul determină senzația",
+          "analizatorul determină senzația",
+          "experiența determină senzația",
+          "contextul determină senzația"
+        ],
+        correctIndex: 1,
+        explanation: "Formulată de Johannes Müller, teoria energiei specifice a organelor de simț susține că natura calitativă a senzației nu este determinată de natura fizică a stimulului extern, ci de specificul analizatorului (nervului senzorial) excitat (ex. lovirea ochiului produce senzație luminoasă)."
+      },
+      {
+        id: 18,
+        theme: "TEMA 2 – Senzațiile",
+        question: "Legea semnificației arată că:",
+        options: [
+          "stimulii identici produc senzații identice",
+          "sensul influențează sensibilitatea",
+          "adaptarea este automată",
+          "senzațiile sunt constante"
+        ],
+        correctIndex: 1,
+        explanation: "Legea semnificației demonstrează că pragurile senzoriale și sensibilitatea depind de valoarea și sensul pe care stimulul îl are pentru subiect (de exemplu, o mamă se trezește la cel mai slab scâncet al copilului, chiar dacă doarme profund la zgomote puternice)."
+      },
+      {
+        id: 19,
+        theme: "TEMA 2 – Senzațiile",
+        question: "Senzațiile sunt imagini primare deoarece:",
+        options: [
+          "sunt simbolice",
+          "sunt generalizate",
+          "reflectă direct stimulul",
+          "sunt mediate de limbaj"
+        ],
+        correctIndex: 2,
+        explanation: "Senzațiile au statutul de imagini primare (elementare) deoarece apar exclusiv în prezența și sub acțiunea directă a stimulului asupra receptorilor, reflectând nemijlocit însușirile concrete ale acestuia."
+      },
+      {
+        id: 20,
+        theme: "TEMA 2 – Senzațiile",
+        question: "Analizatorul este alcătuit din:",
+        options: [
+          "receptor, cale, centru",
+          "stimul, reacție, răspuns",
+          "excitație, percepție, memorie",
+          "prag, intensitate, durată"
+        ],
+        correctIndex: 0,
+        explanation: "După I.P. Pavlov, analizatorul este un sistem neurofiziologic unitar alcătuit din trei segmente: segmentul periferic (receptorul care transformă energia stimulului în impuls nervos), segmentul intermediar (calea de conducere aferentă) și segmentul central (zona de proiecție corticală)."
+      },
+      {
+        id: 21,
+        theme: "TEMA 2 – Senzațiile",
+        question: "Sensibilitatea este condiționată social-istoric deoarece:",
+        options: [
+          "este pur biologică",
+          "se dezvoltă prin experiență",
+          "este reflexă",
+          "este înnăscută exclusiv"
+        ],
+        correctIndex: 1,
+        explanation: "La om, sensibilitatea nu rămâne la un nivel pur biologic, ci este modelată și perfecționată social-istoric prin experiență, învățare, cultură și activitate profesională (ex. auzul muzical la muzicieni, sensibilitatea cromatică la pictori)."
+      },
+      {
+        id: 22,
+        theme: "TEMA 2 – Senzațiile",
+        question: "Intensitatea senzației depinde de:",
+        options: [
+          "experiență socială",
+          "durata expunerii",
+          "forța stimulului",
+          "semnificație"
+        ],
+        correctIndex: 2,
+        explanation: "Intensitatea senzației este determinată în principal de forța (intensitatea fizică) a stimulului care acționează asupra receptorului, relație descrisă cantitativ de legile psihofizicii (Fechner, Stevens)."
+      },
+      {
+        id: 23,
+        theme: "TEMA 2 – Senzațiile",
+        question: "Legea compensării exprimă:",
+        options: [
+          "diminuarea sensibilității",
+          "dezvoltarea altor analizatori",
+          "adaptarea pasivă",
+          "rigiditatea senzorială"
+        ],
+        correctIndex: 1,
+        explanation: "Legea compensării exprimă capacitatea plastică a sistemului nervos de a reorganiza și dezvolta alți analizatori sănătoși pentru a prelua funcțiile de orientare și cunoaștere ale unui analizator lezat sau nedezvoltat."
+      },
+      {
+        id: 24,
+        theme: "TEMA 2 – Senzațiile",
+        question: "Sensibilitatea diferențială este exprimată prin:",
+        options: [
+          "prag absolut",
+          "prag diferențial",
+          "adaptare",
+          "constanță"
+        ],
+        correctIndex: 1,
+        explanation: "Sensibilitatea diferențială (capacitatea de a sesiza diferențele fine dintre doi stimuli) este măsurată și exprimată prin pragul diferențial, fiind invers proporțională cu mărimea acestuia."
+      },
+
+      // ===================== TEMA 3 – Percepția (14 itemi) =====================
+      {
+        id: 25,
+        theme: "TEMA 3 – Percepția",
+        question: "Percepția este:",
+        options: [
+          "reflexie fragmentară",
+          "reflexie integrală a obiectului",
+          "imagine secundară",
+          "proces mnezic"
+        ],
+        correctIndex: 1,
+        explanation: "Conform UÎ 3, percepția reprezintă reflectarea în conștiință a obiectelor și fenomenelor în integralitatea și unitatea însușirilor lor, atunci când acestea acționează direct asupra organelor de simț."
+      },
+      {
+        id: 26,
+        theme: "TEMA 3 – Percepția",
+        question: "Obiectul percepției este:",
+        options: [
+          "stimulul izolat",
+          "ansamblul organizat",
+          "fondul perceptiv",
+          "reacția afectivă"
+        ],
+        correctIndex: 1,
+        explanation: "Spre deosebire de senzație (care vizează însușiri izolate), obiectul percepției îl constituie ansamblul organizat de însușiri (obiectul concret, structurat și dotat cu semnificație) desprins din câmpul perceptiv."
+      },
+      {
+        id: 27,
+        theme: "TEMA 3 – Percepția",
+        question: "Fondul perceptiv reprezintă:",
+        options: [
+          "elementul principal",
+          "contextul perceptiv",
+          "stimulul dominant",
+          "imaginea secundară"
+        ],
+        correctIndex: 1,
+        explanation: "În organizarea câmpului perceptiv (relația figură–fond), obiectul percepției este elementul central focalizat, în timp ce fondul perceptiv reprezintă contextul perceptiv (ambianța spațio-temporală mai difuză) pe care se proiectează figura."
+      },
+      {
+        id: 28,
+        theme: "TEMA 3 – Percepția",
+        question: "Prima fază a percepției este:",
+        options: [
+          "identificarea",
+          "interpretarea",
+          "detecția",
+          "discriminarea"
+        ],
+        correctIndex: 2,
+        explanation: "Procesul perceptiv parcurge patru faze succesive: 1. Detecția (sesizarea prezenței unui stimul în câmpul perceptiv, fără a-l identifica încă), 2. Discriminarea, 3. Identificarea și 4. Interpretarea."
+      },
+      {
+        id: 29,
+        theme: "TEMA 3 – Percepția",
+        question: "Determinanții interni ai percepției includ:",
+        options: [
+          "intensitatea stimulului",
+          "experiența anterioară",
+          "durata expunerii",
+          "caracteristicile fizice"
+        ],
+        correctIndex: 1,
+        explanation: "Percepția depinde atât de factori externi (intensitatea, durata, contrastul stimulului), cât și de determinanți interni (subiectivi): experiența anterioară, setul perceptiv (așteptările), motivația, interesele și starea afectivă."
+      },
+      {
+        id: 30,
+        theme: "TEMA 3 – Percepția",
+        question: "Legea integralității perceptive arată că:",
+        options: [
+          "percepem părți izolate",
+          "percepem obiecte ca întreg",
+          "percepția este rigidă",
+          "percepția este reflexă"
+        ],
+        correctIndex: 1,
+        explanation: "Legea integralității perceptive exprimă faptul că nu percepem o sumă mecanică de detalii izolate, ci percepem obiectul ca un întreg unitar și coerent, chiar și atunci când unele părți ale sale lipsesc sau sunt parțial mascate."
+      },
+      {
+        id: 31,
+        theme: "TEMA 3 – Percepția",
+        question: "Constanța perceptivă se referă la:",
+        options: [
+          "schimbarea imaginii",
+          "stabilitatea imaginii obiectului",
+          "adaptarea senzorială",
+          "sinestezie"
+        ],
+        correctIndex: 1,
+        explanation: "Constanța perceptivă reprezintă proprietatea percepției de a păstra stabilitatea imaginii obiectului (ca formă, mărime și culoare) în ciuda variațiilor condițiilor de receptare (distanță, unghi de privire, iluminare)."
+      },
+      {
+        id: 32,
+        theme: "TEMA 3 – Percepția",
+        question: "Selectivitatea perceptivă presupune:",
+        options: [
+          "percepție totală",
+          "focalizare pe elemente relevante",
+          "lipsa filtrării",
+          "automatism"
+        ],
+        correctIndex: 1,
+        explanation: "Datorită capacității limitate de procesare, selectivitatea perceptivă presupune orientarea și focalizarea pe elementele relevante pentru scopul, motivația sau interesul subiectului, restul stimulilor trecând în fondul perceptiv."
+      },
+      {
+        id: 33,
+        theme: "TEMA 3 – Percepția",
+        question: "Percepția spațiului este o formă:",
+        options: [
+          "simplă",
+          "specială",
+          "complexă",
+          "patologică"
+        ],
+        correctIndex: 2,
+        explanation: "Alături de percepția timpului și a mișcării, percepția spațiului (formă, mărime, distanță, adâncime, orientare) este o formă complexă a percepției, realizată prin cooperarea plurimodală a mai multor analizatori (vizual, kinestezic, tactil, vestibular)."
+      },
+      {
+        id: 34,
+        theme: "TEMA 3 – Percepția",
+        question: "Percepția subliminală se realizează:",
+        options: [
+          "peste prag",
+          "sub pragul conștientizării",
+          "voluntar",
+          "intenționat"
+        ],
+        correctIndex: 1,
+        explanation: "Percepția subliminală desemnează recepționarea și prelucrarea informațională a unor stimuli de intensitate foarte slabă sau durată extrem de scurtă, situați sub pragul conștientizării (sub limen), dar care pot influența implicit conduitele."
+      },
+      {
+        id: 35,
+        theme: "TEMA 3 – Percepția",
+        question: "Faza de discriminare presupune:",
+        options: [
+          "detectarea stimulului",
+          "diferențierea caracteristicilor",
+          "interpretarea sensului",
+          "reacția afectivă"
+        ],
+        correctIndex: 1,
+        explanation: "A doua fază a actului perceptiv, discriminarea, constă în detașarea obiectului de fond și diferențierea caracteristicilor sale specifice (contur, culoare, formă, textură) față de alți stimuli din câmp."
+      },
+      {
+        id: 36,
+        theme: "TEMA 3 – Percepția",
+        question: "Mecanismele percepției sunt:",
+        options: [
+          "exclusiv senzoriale",
+          "senzoriale și intelectuale",
+          "afective",
+          "mnezice"
+        ],
+        correctIndex: 1,
+        explanation: "Conform baremului UÎ 3, percepția nu este o simplă copie pasivă, ci îmbină mecanisme senzoriale (explorare directă, mișcări oculare, analizatori) cu mecanisme intelectuale (raportare la memorie, categorizare, sinteză și atribuire de sens)."
+      },
+      {
+        id: 37,
+        theme: "TEMA 3 – Percepția",
+        question: "Legea structuralității perceptive arată că:",
+        options: [
+          "percepția este haotică",
+          "elementele sunt organizate",
+          "percepția este izolată",
+          "stimulii sunt independenți"
+        ],
+        correctIndex: 1,
+        explanation: "Legea structuralității (inspirată din psihologia gestaltistă) demonstrează că elementele componente ale unui stimul sunt organizate în structuri coerente după principii precum proximitatea, similaritatea, continuitatea și închiderea."
+      },
+      {
+        id: 38,
+        theme: "TEMA 3 – Percepția",
+        question: "Percepția timpului este influențată de:",
+        options: [
+          "intensitatea stimulului",
+          "starea afectivă",
+          "culoare",
+          "formă"
+        ],
+        correctIndex: 1,
+        explanation: "Aprecierea subiectivă a duratei (percepția timpului) este puternic influențată de conținutul activității și de starea afectivă: intervalele pline de evenimente plăcute par să treacă rapid, în timp ce așteptarea anxioasă sau plictiseala dilată subiectiv timpul."
+      },
+
+      // ===================== TEMA 4 – Reprezentările (11 itemi) =====================
+      {
+        id: 39,
+        theme: "TEMA 4 – Reprezentările",
+        question: "Reprezentarea este:",
+        options: [
+          "imagine primară",
+          "imagine mentală secundară",
+          "reacție senzorială",
+          "proces afectiv"
+        ],
+        correctIndex: 1,
+        explanation: "Conform UÎ 4, reprezentarea este procesul psihic cognitiv de reflectare, sub forma unei imagini mentale secundare, schematice și generalizate, a obiectelor și fenomenelor percepute anterior."
+      },
+      {
+        id: 40,
+        theme: "TEMA 4 – Reprezentările",
+        question: "Reprezentările apar în absența:",
+        options: [
+          "stimulului direct",
+          "memoriei",
+          "experienței",
+          "limbajului"
+        ],
+        correctIndex: 0,
+        explanation: "Trăsătura definitorie care deosebește reprezentarea de senzație și percepție este faptul că reprezentarea se produce în absența stimulului direct (a acțiunii nemijlocite a obiectului asupra organelor de simț)."
+      },
+      {
+        id: 41,
+        theme: "TEMA 4 – Reprezentările",
+        question: "Figurativitatea se referă la:",
+        options: [
+          "caracter verbal",
+          "caracter imagistic",
+          "caracter afectiv",
+          "caracter logic"
+        ],
+        correctIndex: 1,
+        explanation: "Figurativitatea (caracterul concret-intuitiv) este proprietatea reprezentării de a reda obiectul sub formă imagistică, păstrând însușirile sale configurative (formă, culoare, dimensiuni), dar într-o manieră mai schematică decât percepția."
+      },
+      {
+        id: 42,
+        theme: "TEMA 4 – Reprezentările",
+        question: "Operativitatea presupune:",
+        options: [
+          "pasivitate",
+          "manipulare mentală",
+          "rigiditate",
+          "automatism"
+        ],
+        correctIndex: 1,
+        explanation: "Operativitatea (demonstrată clasic prin experimentele de rotație mentală ale lui Shepard & Metzler) constă în posibilitatea de a efectua transformări și manipulări mentale asupra imaginilor (rotire, mărire, secționare, combinare)."
+      },
+      {
+        id: 43,
+        theme: "TEMA 4 – Reprezentările",
+        question: "Panoramizarea este:",
+        options: [
+          "restrângerea imaginii",
+          "extinderea mentală a imaginii",
+          "adaptare senzorială",
+          "distorsiune perceptivă"
+        ],
+        correctIndex: 1,
+        explanation: "Panoramizarea reprezintă proprietatea reprezentării de a depăși limitele câmpului perceptiv imediat, permițând extinderea mentală a imaginii și cuprinderea simultană a unui obiect din toate laturile sau perspectivele sale (ex. imaginea integrală a unei clădiri)."
+      },
+      {
+        id: 44,
+        theme: "TEMA 4 – Reprezentările",
+        question: "Reprezentările sunt mai generale decât:",
+        options: [
+          "conceptele",
+          "senzațiile",
+          "percepțiile",
+          "noțiunile"
+        ],
+        correctIndex: 2,
+        explanation: "Pe treapta cunoașterii, reprezentările se situează între senzorial și logic: ele sunt mai generale și mai schematice decât percepțiile (care sunt strict legate de un obiect concret, prezent), dar mai puțin abstracte decât noțiunile/conceptele."
+      },
+      {
+        id: 45,
+        theme: "TEMA 4 – Reprezentările",
+        question: "Relația dintre percepție și reprezentare este:",
+        options: [
+          "de opoziție",
+          "de independență",
+          "de continuitate",
+          "de excludere"
+        ],
+        correctIndex: 2,
+        explanation: "Între percepție și reprezentare există o relație genetică și funcțională de continuitate: reprezentarea derivă din percepțiile anterioare (de aceea un nevăzător din naștere nu are reprezentări vizuale) și, la rândul ei, pregătește și orientează percepțiile viitoare."
+      },
+      {
+        id: 46,
+        theme: "TEMA 4 – Reprezentările",
+        question: "Rolul reprezentărilor în cunoaștere este:",
+        options: [
+          "pasiv",
+          "de mediere",
+          "afectiv",
+          "reflex"
+        ],
+        correctIndex: 1,
+        explanation: "Reprezentarea îndeplinește un rol esențial de mediere („puntea dintre senzorial și logic”), făcând trecerea de la imaginile concrete ale percepției către operațiile abstracte ale gândirii și formarea conceptelor."
+      },
+      {
+        id: 47,
+        theme: "TEMA 4 – Reprezentările",
+        question: "Generalizarea în reprezentări presupune:",
+        options: [
+          "izolare",
+          "selectarea trăsăturilor comune",
+          "fragmentare",
+          "rigiditate"
+        ],
+        correctIndex: 1,
+        explanation: "Spre deosebire de percepție (care reține și detaliile accidentale), reprezentarea operează o generalizare intuitivă prin estomparea detaliilor nesemnificative și selectarea trăsăturilor comune, tipice unei clase de obiecte."
+      },
+      {
+        id: 48,
+        theme: "TEMA 4 – Reprezentările",
+        question: "Reprezentările pot fi clasificate după:",
+        options: [
+          "intensitate",
+          "origine",
+          "durată",
+          "ton afectiv"
+        ],
+        correctIndex: 1,
+        explanation: "În curs, reprezentările sunt clasificate după mai multe criterii fundamentale, printre care originea/modalitatea senzorială (vizuale, auditive, kinestezice etc.), gradul de generalitate (individuale, generale) și caracterul activ/creator (reproductive, anticipative)."
+      },
+      {
+        id: 49,
+        theme: "TEMA 4 – Reprezentările",
+        question: "Reprezentările simbolice sunt:",
+        options: [
+          "strict senzoriale",
+          "mediate cultural",
+          "reflexe",
+          "involuntare"
+        ],
+        correctIndex: 1,
+        explanation: "Reprezentările simbolice (conceptuale, matematice, lingvistice sau sociale) nu sunt copii senzoriale directe, ci sunt mediate cultural prin semne, simboluri, limbaj și experiență socio-istorică."
+      },
+
+      // ===================== TEMA 5 – Memoria (16 itemi) =====================
+      {
+        id: 50,
+        theme: "TEMA 5 – Memoria",
+        question: "Memoria este:",
+        options: [
+          "proces perceptiv",
+          "mecanism de engramare, stocare și reactualizare",
+          "proces afectiv",
+          "mecanism reflex"
+        ],
+        correctIndex: 1,
+        explanation: "Memoria este definită ca procesul psihic cognitiv de reflectare activă, selectivă și inteligibilă a experienței anterioare, realizat prin trei procese fundamentale interdependente: engramarea (memorarea), stocarea (păstrarea) și reactualizarea."
+      },
+      {
+        id: 51,
+        theme: "TEMA 5 – Memoria",
+        question: "Engramarea reprezintă:",
+        options: [
+          "uitarea",
+          "fixarea informației",
+          "recunoașterea",
+          "reproducerea"
+        ],
+        correctIndex: 1,
+        explanation: "Engramarea (memorarea sau codarea) reprezintă prima etapă a activității mnezice și constă în fixarea informației recepționate și formarea urmelor mnezice (engramelor) la nivel neuropsihic."
+      },
+      {
+        id: 52,
+        theme: "TEMA 5 – Memoria",
+        question: "Reactualizarea include:",
+        options: [
+          "memorare și stocare",
+          "recunoaștere și reproducere",
+          "adaptare",
+          "discriminare"
+        ],
+        correctIndex: 1,
+        explanation: "Reactualizarea (scoaterea informației din depozitul mnezic pentru utilizare) se realizează sub două forme principale: recunoașterea (în prezența obiectului/stimulului) și reproducerea (evocarea în absența obiectului)."
+      },
+      {
+        id: 53,
+        theme: "TEMA 5 – Memoria",
+        question: "Memoria logică presupune:",
+        options: [
+          "repetare mecanică",
+          "implicarea gândirii",
+          "automatism",
+          "lipsa sensului"
+        ],
+        correctIndex: 1,
+        explanation: "După gradul de înțelegere a materialului, memoria logică presupune implicarea gândirii, surprinderea sensului, a relațiilor cauzale și a structurii logice a informației, fiind mult mai trainică și eficientă decât memoria mecanică."
+      },
+      {
+        id: 54,
+        theme: "TEMA 5 – Memoria",
+        question: "Memoria involuntară apare:",
+        options: [
+          "cu intenție",
+          "fără scop conștient",
+          "prin efort voluntar",
+          "controlat"
+        ],
+        correctIndex: 1,
+        explanation: "După prezența intenției și a efortului volitiv, memoria involuntară (neintenționată) are loc fără un scop conștient prestabilit de a reține și fără efort voluntar, fiind favorizată de noutatea, intensitatea sau rezonanța afectivă a stimulului."
+      },
+      {
+        id: 55,
+        theme: "TEMA 5 – Memoria",
+        question: "Memoria senzorială are durată:",
+        options: [
+          "foarte scurtă",
+          "medie",
+          "lungă",
+          "permanentă"
+        ],
+        correctIndex: 0,
+        explanation: "În modelul stadial al memoriei (Atkinson & Shiffrin), memoria senzorială (registrele senzoriale: iconic, ecoic) reține fidel informația brută pe o durată foarte scurtă (de ordinul milisecundelor până la 1–2 secunde)."
+      },
+      {
+        id: 56,
+        theme: "TEMA 5 – Memoria",
+        question: "Memoria de lucru este:",
+        options: [
+          "stoc pasiv",
+          "sistem activ de procesare",
+          "memorie afectivă",
+          "memorie motorie"
+        ],
+        correctIndex: 1,
+        explanation: "Conceptualizată de Baddeley și Hitch, memoria de lucru nu este un simplu stoc pasiv, ci un sistem activ de procesare și manipulare temporară a informațiilor necesare sarcinilor cognitive complexe (înțelegere, raționament, învățare)."
+      },
+      {
+        id: 57,
+        theme: "TEMA 5 – Memoria",
+        question: "Memoria episodică se referă la:",
+        options: [
+          "concepte generale",
+          "evenimente personale",
+          "deprinderi",
+          "simboluri"
+        ],
+        correctIndex: 1,
+        explanation: "Definită de Endel Tulving în cadrul memoriei declarative, memoria episodică stochează evenimente personale și experiențe autobiografice ancorate într-un context spațio-temporal precis (ce, unde și când s-a întâmplat)."
+      },
+      {
+        id: 58,
+        theme: "TEMA 5 – Memoria",
+        question: "Memoria semantică include:",
+        options: [
+          "emoții",
+          "noțiuni și concepte",
+          "acțiuni automatizate",
+          "imagini senzoriale"
+        ],
+        correctIndex: 1,
+        explanation: "Memoria semantică reprezintă tezaurul de cunoștințe generale despre lume, incluzând noțiuni și concepte, reguli, semnificația cuvintelor și fapte abstracte, independente de contextul personal în care au fost învățate."
+      },
+      {
+        id: 59,
+        theme: "TEMA 5 – Memoria",
+        question: "Memoria voluntară presupune:",
+        options: [
+          "lipsa intenției",
+          "efort conștient",
+          "automatism",
+          "reflex"
+        ],
+        correctIndex: 1,
+        explanation: "Memoria voluntară (intenționată) este o activitate organizată care presupune formularea unui scop conștient de a memora/reactualiza, mobilizarea atenției și depunerea unui efort conștient (volitiv)."
+      },
+      {
+        id: 60,
+        theme: "TEMA 5 – Memoria",
+        question: "Memoria mecanică se bazează pe:",
+        options: [
+          "sens",
+          "înțelegere",
+          "repetare",
+          "organizare logică"
+        ],
+        correctIndex: 2,
+        explanation: "Memoria mecanică se realizează în absența înțelegerii legăturilor logice profunde, bazându-se exclusiv pe repetare succesivă și asocieri de contiguitate formală (ex. memorarea unui număr de telefon sau a unor silabe fără sens)."
+      },
+      {
+        id: 61,
+        theme: "TEMA 5 – Memoria",
+        question: "Memoria de lungă durată este:",
+        options: [
+          "limitată",
+          "relativ stabilă",
+          "exclusiv senzorială",
+          "pasivă"
+        ],
+        correctIndex: 1,
+        explanation: "Memoria de lungă durată (MLD) dispune de o capacitate practic nelimitată și asigură conservarea relativ stabilă a cunoștințelor, deprinderilor și experiențelor pe termen lung (ani sau întreaga viață)."
+      },
+      {
+        id: 62,
+        theme: "TEMA 5 – Memoria",
+        question: "Memoria implicită este:",
+        options: [
+          "conștient verbalizată",
+          "neconștientizată",
+          "declarativă",
+          "episodică"
+        ],
+        correctIndex: 1,
+        explanation: "Spre deosebire de memoria explicită (declarativă, conștient verbalizată), memoria implicită (non-declarativă/procedurală) este neconștientizată în momentul reactualizării, manifestându-se prin deprinderi motorii, condiționări și efecte de amorsaj."
+      },
+      {
+        id: 63,
+        theme: "TEMA 5 – Memoria",
+        question: "Patologia memoriei presupune:",
+        options: [
+          "optimizare",
+          "tulburări mnezice",
+          "adaptare",
+          "compensare"
+        ],
+        correctIndex: 1,
+        explanation: "Patologia memoriei studiază tulburările mnezice (dismneziile), clasificate în tulburări cantitative (hipomnezie, hipermnezie, amnezie anterogradă/retrogradă) și calitative (paramnezii: confabulații, criptomnezie, deja-vu)."
+      },
+      {
+        id: 64,
+        theme: "TEMA 5 – Memoria",
+        question: "Particularitățile individuale ale memoriei depind de:",
+        options: [
+          "vârstă",
+          "activitate",
+          "educație",
+          "toți factorii enumerați"
+        ],
+        correctIndex: 3,
+        explanation: "Calitățile memoriei (volumul, trăinicia, rapiditatea, fidelitatea și promptitudinea) prezintă diferențe individuale semnificative care depind simultan de vârstă (ontogeneză), specificul activității desfășurate și nivelul de educație/antrenament."
+      },
+      {
+        id: 65,
+        theme: "TEMA 5 – Memoria",
+        question: "Optimizarea memoriei presupune:",
+        options: [
+          "suprasolicitare",
+          "organizarea și semnificația materialului",
+          "memorare haotică",
+          "pasivitate"
+        ],
+        correctIndex: 1,
+        explanation: "Optimizarea activității mnezice se obține prin procesare profundă (Craik & Lockhart): organizarea și semnificația materialului, structurarea logică, repetarea eșalonată în timp, utilizarea mnemotehnicilor și implicarea activă a subiectului."
+      }
+    ];
+
+    /* ==========================================================================
+       STAREA APLICAȚIEI & REFERINȚE DOM
+       ========================================================================== */
+    const LETTERS = ["A", "B", "C", "D"];
+
+    let state = {
+      activeQuestions: [],
+      currentIndex: 0,
+      correctCount: 0,
+      wrongHistory: [], // { questionObj, chosenText, correctText }
+      startTime: null,
+      timerInterval: null,
+      elapsedSeconds: 0,
+      isLocked: false,
+      autoAdvanceTimeout: null
+    };
+
+    // Elemente DOM
+    const startScreen = document.getElementById("start-screen");
+    const quizScreen = document.getElementById("quiz-screen");
+    const resultScreen = document.getElementById("result-screen");
+
+    const themeFilter = document.getElementById("theme-filter");
+    const btnStart = document.getElementById("btn-start");
+
+    const progressLabel = document.getElementById("progress-label");
+    const progressBarContainer = document.getElementById("progress-bar-container");
+    const progressFill = document.getElementById("progress-fill");
+    const liveScoreChip = document.getElementById("live-score-chip");
+    const liveTimerChip = document.getElementById("live-timer-chip");
+
+    const qTheme = document.getElementById("q-theme");
+    const qOriginalId = document.getElementById("q-original-id");
+    const qText = document.getElementById("q-text");
+    const optionsContainer = document.getElementById("options-container");
+    const autoAdvanceToast = document.getElementById("auto-advance-toast");
+
+    const explanationPanel = document.getElementById("explanation-panel");
+    const expCorrectAnswer = document.getElementById("exp-correct-answer");
+    const expText = document.getElementById("exp-text");
+    const btnNextQuestion = document.getElementById("btn-next-question");
+
+    const btnRestartAll = document.getElementById("btn-restart-all");
+    const btnRetryMistakes = document.getElementById("btn-retry-mistakes");
+    const retryCountSpan = document.getElementById("retry-count");
+    const btnBackHome = document.getElementById("btn-back-home");
+
+    /* ==========================================================================
+       FUNCȚII UTILITARE (FISHER-YATES SHUFFLE & FORMATARE TIMP)
+       ========================================================================== */
+    function shuffleArray(array) {
+      const arr = [...array];
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+
+    function formatTime(totalSeconds) {
+      const mins = Math.floor(totalSeconds / 60);
+      const secs = totalSeconds % 60;
+      return `${String(mins).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
+    }
+
+    /* ==========================================================================
+       INIȚIALIZARE ȘI PORNIRE TEST
+       ========================================================================== */
+    function prepareSessionQuestions(sourceList) {
+      // 1. Amestecăm ordinea întrebărilor
+      const shuffledQuestions = shuffleArray(sourceList);
+
+      // 2. Pentru fiecare întrebare, amestecăm variantele de răspuns, păstrând constant răspunsul corect
+      return shuffledQuestions.map((item) => {
+        const optionsWithFlag = item.options.map((optText, idx) => ({
+          text: optText,
+          isCorrect: idx === item.correctIndex
+        }));
+
+        const shuffledOptions = shuffleArray(optionsWithFlag);
+
+        return {
+          ...item,
+          shuffledOptions
+        };
+      });
+    }
+
+    function startQuiz(customSourceList = null) {
+      if (state.autoAdvanceTimeout) {
+        clearTimeout(state.autoAdvanceTimeout);
+      }
+      if (state.timerInterval) {
+        clearInterval(state.timerInterval);
+      }
+
+      let baseList = customSourceList;
+      if (!baseList) {
+        const selectedTheme = themeFilter.value;
+        baseList = selectedTheme === "ALL"
+          ? QUESTIONS_DB
+          : QUESTIONS_DB.filter((q) => q.theme === selectedTheme);
+      }
+
+      state.activeQuestions = prepareSessionQuestions(baseList);
+      state.currentIndex = 0;
+      state.correctCount = 0;
+      state.wrongHistory = [];
+      state.elapsedSeconds = 0;
+      state.startTime = Date.now();
+      state.isLocked = false;
+
+      // Actualizare UI
+      startScreen.classList.add("hidden");
+      resultScreen.classList.add("hidden");
+      quizScreen.classList.remove("hidden");
+
+      liveScoreChip.textContent = "✓ Corecte: 0";
+      liveTimerChip.textContent = "⏱ 00:00";
+
+      // Pornire cronometru
+      state.timerInterval = setInterval(() => {
+        state.elapsedSeconds = Math.floor((Date.now() - state.startTime) / 1000);
+        liveTimerChip.textContent = `⏱ ${formatTime(state.elapsedSeconds)}`;
+      }, 500);
+
+      renderCurrentQuestion();
+    }
+
+    /* ==========================================================================
+       RANDARE ÎNTREBARE CURENTĂ ȘI GESTIONARE RĂSPUNSURI
+       ========================================================================== */
+    function renderCurrentQuestion() {
+      state.isLocked = false;
+      autoAdvanceToast.classList.add("hidden");
+      explanationPanel.classList.add("hidden");
+
+      const total = state.activeQuestions.length;
+      const currentQ = state.activeQuestions[state.currentIndex];
+      const questionNumber = state.currentIndex + 1;
+      const progressPercent = Math.round((state.currentIndex / total) * 100);
+
+      // Actualizare bară progres
+      progressLabel.textContent = `Întrebarea ${questionNumber} din ${total} (${progressPercent}%)`;
+      progressFill.style.width = `${progressPercent}%`;
+      progressBarContainer.setAttribute("aria-valuenow", progressPercent);
+
+      // Populăm datele întrebării
+      qTheme.textContent = currentQ.theme;
+      qOriginalId.textContent = `Item grilă #${currentQ.id}`;
+      qText.textContent = currentQ.question;
+
+      // Randăm opțiunile amestecate
+      optionsContainer.innerHTML = "";
+      currentQ.shuffledOptions.forEach((optObj, idx) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "option-btn";
+        btn.dataset.index = idx;
+
+        const letterSpan = document.createElement("span");
+        letterSpan.className = "option-letter";
+        letterSpan.textContent = LETTERS[idx];
+
+        const textSpan = document.createElement("span");
+        textSpan.textContent = optObj.text;
+
+        btn.appendChild(letterSpan);
+        btn.appendChild(textSpan);
+
+        btn.addEventListener("click", () => handleOptionSelect(idx));
+        optionsContainer.appendChild(btn);
+      });
+    }
+
+    function handleOptionSelect(selectedIdx) {
+      if (state.isLocked) return;
+      state.isLocked = true;
+
+      const currentQ = state.activeQuestions[state.currentIndex];
+      const chosenOption = currentQ.shuffledOptions[selectedIdx];
+      const correctOptionIdx = currentQ.shuffledOptions.findIndex((o) => o.isCorrect);
+      const correctOption = currentQ.shuffledOptions[correctOptionIdx];
+
+      const allOptionButtons = optionsContainer.querySelectorAll(".option-btn");
+      allOptionButtons.forEach((btn, idx) => {
+        btn.disabled = true;
+        if (idx === correctOptionIdx) {
+          btn.classList.add("correct");
+        } else if (idx === selectedIdx && !chosenOption.isCorrect) {
+          btn.classList.add("wrong");
+        } else {
+          btn.classList.add("dimmed");
+        }
+      });
+
+      if (chosenOption.isCorrect) {
+        // RĂSPUNS CORECT -> incrementăm scorul și trecem automat la următoarea întrebare
+        state.correctCount++;
+        liveScoreChip.textContent = `✓ Corecte: ${state.correctCount}`;
+        autoAdvanceToast.classList.remove("hidden");
+
+        state.autoAdvanceTimeout = setTimeout(() => {
+          goToNextStep();
+        }, 650);
+      } else {
+        // RĂSPUNS GREȘIT -> salvăm eroarea și afișăm explicația detaliată
+        state.wrongHistory.push({
+          questionObj: currentQ,
+          chosenText: `${LETTERS[selectedIdx]}. ${chosenOption.text}`,
+          correctText: `${LETTERS[correctOptionIdx]}. ${correctOption.text}`
+        });
+
+        expCorrectAnswer.innerHTML = `<strong>Varianta corectă:</strong> ${LETTERS[correctOptionIdx]}. ${correctOption.text}`;
+        expText.textContent = currentQ.explanation;
+        explanationPanel.classList.remove("hidden");
+        explanationPanel.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+    }
+
+    function goToNextStep() {
+      state.currentIndex++;
+      if (state.currentIndex < state.activeQuestions.length) {
+        renderCurrentQuestion();
+      } else {
+        finishQuiz();
+      }
+    }
+
+    /* ==========================================================================
+       FINALIZARE TEST & CALCUL SCOR GENERAL (RAPORT CORECTE / VITEZĂ)
+       ========================================================================== */
+    function finishQuiz() {
+      if (state.timerInterval) {
+        clearInterval(state.timerInterval);
+      }
+
+      // 100% bara de progres
+      progressFill.style.width = "100%";
+
+      const totalItems = state.activeQuestions.length;
+      const correct = state.correctCount;
+      const wrong = state.wrongHistory.length;
+      const exactSeconds = Math.max(1, (Date.now() - state.startTime) / 1000);
+      const totalMinutes = exactSeconds / 60;
+
+      // Metrici de acuratețe și viteză
+      const accuracyPercent = Math.round((correct / totalItems) * 100);
+      const correctPerMinute = correct / totalMinutes;
+      const avgSecondsPerItem = exactSeconds / totalItems;
+
+      // Calculul Scorului General combinat (Acuratețe + Raport Corecte/Timp)
+      // Formula echilibrează acuratețea (0-100) cu viteza de execuție (bonus de eficiență temporală):
+      // Scor = (Acuratețe%) * (1 + min(0.5, Viteză_corecte_per_min / 20)) -> exprimat clar ca Indice de Eficiență (0 - 150 pct)
+      const speedFactor = Math.min(0.5, correctPerMinute / 20);
+      const generalScore = (accuracyPercent * (1 + speedFactor)).toFixed(1);
+
+      // Actualizare UI Chenar Concluzional
+      document.getElementById("final-general-score").textContent = `${generalScore} pct`;
+      document.getElementById("final-score-formula").textContent =
+        `Raport: ${correct} corecte în ${formatTime(Math.round(exactSeconds))} (${correctPerMinute.toFixed(1)} itemi/min)`;
+
+      document.getElementById("final-accuracy").textContent = `${accuracyPercent}%`;
+      document.getElementById("final-fraction").textContent = `${correct} din ${totalItems} corecte`;
+
+      document.getElementById("final-speed-ratio").textContent = `${correctPerMinute.toFixed(1)} / min`;
+      document.getElementById("final-avg-time").textContent = `Timp mediu: ${avgSecondsPerItem.toFixed(1)} sec / item`;
+
+      document.getElementById("stat-total-items").textContent = totalItems;
+      document.getElementById("stat-correct").textContent = correct;
+      document.getElementById("stat-wrong").textContent = wrong;
+      document.getElementById("stat-total-time").textContent = formatTime(Math.round(exactSeconds));
+
+      // Evaluare calitativă conform baremului cursului
+      const assessmentEl = document.getElementById("final-assessment-text");
+      if (accuracyPercent >= 85) {
+        assessmentEl.innerHTML = `<strong>Nivel de performanță: Bază solidă (Excelent).</strong> Stăpânești cu precizie conceptele fundamentale, legile și mecanismele proceselor cognitive din suportul de curs al Prof. Dr. Tatiana Verdeș, demonstrând o viteză optimă de reactualizare.`;
+      } else if (accuracyPercent >= 65) {
+        assessmentEl.innerHTML = `<strong>Nivel de performanță: Bază bună, cu câteva lacune punctuale.</strong> Ai asimilat structura principală a temelor, însă se recomandă revizuirea explicațiilor pentru itemii greșiți de mai jos înainte de examen.`;
+      } else if (accuracyPercent >= 40) {
+        assessmentEl.innerHTML = `<strong>Nivel de performanță: Cunoștințe fragmentare.</strong> Îți recomandăm să parcurgi cu atenție rezumatul explicativ al erorilor de mai jos și să reiei testul pentru consolidarea terminologiei specifice.`;
+      } else {
+        assessmentEl.innerHTML = `<strong>Nivel de performanță: Necesită aprofundare susținută.</strong> Parcurge explicațiile teoretice detaliate pentru fiecare item greșit și reia sesiunea de antrenament pe teme individuale.`;
+      }
+
+      // Buton reîncercare doar greșeli
+      if (wrong > 0) {
+        btnRetryMistakes.classList.remove("hidden");
+        retryCountSpan.textContent = wrong;
+      } else {
+        btnRetryMistakes.classList.add("hidden");
+      }
+
+      // Randare rezumat greșeli
+      renderMistakesSummary();
+
+      quizScreen.classList.add("hidden");
+      resultScreen.classList.remove("hidden");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function renderMistakesSummary() {
+      const container = document.getElementById("mistakes-list-container");
+      const subtitle = document.getElementById("mistakes-subtitle");
+      container.innerHTML = "";
+
+      if (state.wrongHistory.length === 0) {
+        subtitle.textContent = "Felicitări! Nu ai înregistrat niciun răspuns greșit în această sesiune.";
+        container.innerHTML = `
+          <div class="perfect-banner">
+            <h3>🏆 Performanță impecabilă – 100% răspunsuri corecte!</h3>
+            <p>Ai răspuns corect la toți itemii din această sesiune. Poți relua testul pentru a-ți îmbunătăți și mai mult viteza de reacție.</p>
+          </div>
+        `;
+        return;
+      }
+
+      subtitle.textContent = `Ai greșit ${state.wrongHistory.length} ${state.wrongHistory.length === 1 ? "întrebare" : "întrebări"}. Revizuiește explicațiile extrase din suportul de curs:`;
+
+      state.wrongHistory.forEach((entry, index) => {
+        const card = document.createElement("div");
+        card.className = "mistake-card";
+
+        card.innerHTML = `
+          <div style="font-size: 0.78rem; font-weight: 700; color: var(--accent); text-transform: uppercase; margin-bottom: 0.35rem;">
+            ${entry.questionObj.theme} • Item grilă #${entry.questionObj.id}
+          </div>
+          <div class="mistake-q-title">${index + 1}. ${entry.questionObj.question}</div>
+          <div class="mistake-answers-grid">
+            <div class="ans-pill user-wrong">
+              <strong>✗ Răspunsul tău:</strong><br/>${entry.chosenText}
+            </div>
+            <div class="ans-pill right-ans">
+              <strong>✓ Răspunsul corect:</strong><br/>${entry.correctText}
+            </div>
+          </div>
+          <div class="mistake-explanation">
+            <strong>📖 Explicație din suportul de curs:</strong> ${entry.questionObj.explanation}
+          </div>
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    /* ==========================================================================
+       EVENIMENTE INTERFAȚĂ
+       ========================================================================== */
+    btnStart.addEventListener("click", () => startQuiz());
+    btnNextQuestion.addEventListener("click", () => goToNextStep());
+
+    btnRestartAll.addEventListener("click", () => {
+      startQuiz();
+    });
+
+    btnRetryMistakes.addEventListener("click", () => {
+      const mistakenQuestions = state.wrongHistory.map((item) => {
+        // Reconstruim obiectul original curat din QUESTIONS_DB
+        return QUESTIONS_DB.find((q) => q.id === item.questionObj.id);
+      });
+      if (mistakenQuestions.length > 0) {
+        startQuiz(mistakenQuestions);
+      }
+    });
+
+    btnBackHome.addEventListener("click", () => {
+      if (state.timerInterval) clearInterval(state.timerInterval);
+      if (state.autoAdvanceTimeout) clearTimeout(state.autoAdvanceTimeout);
+      quizScreen.classList.add("hidden");
+      resultScreen.classList.add("hidden");
+      startScreen.classList.remove("hidden");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
+</body>
+</html>
